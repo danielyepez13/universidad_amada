@@ -33,15 +33,15 @@
             </div>
 
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" @click="isOpen = !isOpen" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
+            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full', moonSun ? 'bg-black white:bg-gray-800' : 'bg-white dark:bg-gray-800']" @click="isOpen = !isOpen" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:duration-0 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
                 <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Inicio</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Horarios</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Sobre Nosotros</a>
                 </div>
 
-                <div class="flex flex-col md:flex-row ">
-                    <div class="flex flex-wrap content-center mr-3" @click="moonSun = !moonSun">
+                <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-wrap content-center mr-3 invisible md:visible" @click="moonSun = !moonSun">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 text-white cursor-pointer" viewBox="0 0 16 16" x-show="!moonSun">
                             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
                         </svg>
@@ -49,7 +49,7 @@
                             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
                         </svg>
                     </div>
-                    <div class="relative mt-4 md:mt-0">
+                    <div class="relative">
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
                                 <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -62,6 +62,57 @@
             </div>
         </div>
     </nav>
+    <div class="mt-16 mx-4 flex flex-wrap flex-col md:flex-row justify-center">
+        <div class="flex flex-col max-w-lg">
+            <h1 class="text-4xl font-bold text-gray-800 mb-5">La universidad de tus sueños está justo aquí</h1>
+            <p class="mb-5 text-gray-600">Nosotros trabajamos para dar la máxima garantía de los mejores estudios dentro de nuestras instalaciones.</p>
+            <div class="flex flex-row justify-around">
+                <div class="flex flex-col space-y-4">
+                    <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Profesores Graduados</p>
+                    </div>
+                    <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Horarios a disposición</p>
+                    </div>
+                    <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Instalaciones recreativas</p>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-4">
+                <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Carreras de gran Preferencia</p>
+                    </div>
+                    <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Postgrados completos</p>
+                    </div>
+                    <div class="p-4 flex flex-wrap items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                        </svg> 
+                        <p class="ml-2">Actividades extracurriculares</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-lg overflow-hidden ml-3">
+            <img class="w-full object-cover rounded-md" src="img/universidad.jpg" alt="">
+        </div>
+    </div>
 </body>
 
 </html>
