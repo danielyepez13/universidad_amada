@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <!-- Menú -->
     <nav x-data="{ isOpen: false, moonSun: false }" :class="moonSun ? 'bg-black white:bg-gray-800' :  'bg-white dark:bg-gray-800'" class="relative shadow">
         <div class="container px-6 py-3 mx-auto md:flex">
             <div class="flex items-center justify-between">
@@ -63,6 +64,7 @@
             </div>
         </div>
     </nav>
+    <!-- Bienvenida -->
     <div class="md:mt-12 mt-8 mx-4 flex flex-wrap flex-col md:flex-row justify-center">
         <div class="flex flex-col justify-around max-w-xl">
             <h1 class="text-4xl font-bold text-gray-800 mb-3 text-center">La universidad de tus sueños está justo aquí</h1>
@@ -116,6 +118,7 @@
             <img class="w-full object-cover rounded-md" src="img/universidad.jpg" alt="">
         </div>
     </div>
+    <!-- Testimonio 1 -->
     <section class="bg-white dark:bg-gray-800 mt-8">
         <div class="max-w-6xl px-6 py-10 mx-auto">
             <p class="text-xl font-medium text-blue-500 ">Testimonios</p>
@@ -124,8 +127,8 @@
                 ¿Qué dicen nuestros estudiantes?
             </h1>
 
-            <main class="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
-                <div class="absolute w-full bg-blue-800 -z-10 md:h-96 rounded-2xl"></div>
+            <div class="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
+                <div class="absolute w-full bg-blue-800 shadow-xl shadow-blue-500/50 -z-10 md:h-96 rounded-2xl"></div>
 
                 <div class="w-full p-6 bg-blue-600 md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly" x-data="getCarouselData()">
                     <template x-for="image in images.slice(currentIndex, currentIndex + 1)" :key="images.indexOf(image)">
@@ -157,13 +160,48 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </section>
+    <!-- Testimonio 2 -->
+    <section class="bg-dark white:bg-gray-800 mt-8">
+        <div class="max-w-6xl px-6 py-10 mx-auto">
+            <div class="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
+                <div class="absolute w-full bg-blue-700 shadow-xl shadow-blue-700/50 -z-10 md:h-96 rounded-2xl"></div>
 
-    <script>
+                <div class="w-full p-6 bg-blue-600 md:flex md:items-center rounded-2xl md:bg-transparent md:p-0 lg:px-12 md:justify-evenly" x-data="getCarouselData2()">
 
-    </script>
+                    <div class="mt-2 md:mx-6">
+                        <template x-for="image in images.slice(currentIndex, currentIndex + 1)" :key="images.indexOf(image)">
+                            <div>
+                                <p class="text-xl font-medium tracking-tight text-white" x-text="image.nombre"></p>
+                                <p class="text-blue-200" x-text="image.carrera"></p>
+                                <p class="mt-4 text-lg leading-relaxed text-white md:text-xl" x-text="image.experiencia"></p>
+                            </div>
+                        </template>
+
+                        <div class="flex items-center justify-between mt-6 md:justify-start">
+                            <button title="Izquierda" class="p-2 text-white transition-colors duration-300 border rounded-full rtl:-scale-x-100 hover:bg-blue-400" @click="decrement()">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+
+                            <button title="Derecha" class="p-2 text-white transition-colors duration-300 border rounded-full rtl:-scale-x-100 md:mx-6 hover:bg-blue-400" @click="increment()">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <template x-for="image in images.slice(currentIndex, currentIndex + 1)" :key="images.indexOf(image)">
+                        <img class="h-24 w-24 md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[36rem] lg:w-[26rem] md:rounded-2xl" :src="image.imagen" alt="foto de estudiante">
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
