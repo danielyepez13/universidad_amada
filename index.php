@@ -39,6 +39,7 @@
                 <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Inicio</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Horarios</a>
+                    <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Carreras</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Sobre Nosotros</a>
                 </div>
 
@@ -114,16 +115,74 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-xl md:ml-3">
+        <div class="max-w-xl md:ml-3 drop-shadow-2xl">
             <img class="w-full object-cover rounded-md" src="img/universidad.jpg" alt="">
         </div>
     </div>
-    <!-- Testimonio 1 -->
+    <!-- Sedes -->
     <section class="bg-white dark:bg-gray-800 mt-8">
+        <div class="container px-6 py-10 mx-auto">
+            <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Explora nuestras 
+                <br> asombrosas <span class="text-blue-500 underline underline-offset-2">Sedes</span>
+            </h1>
+
+            <div class="grid grid-cols-1 gap-6 mt-4 xl:mt-8 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
+                <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+                    <div class="w-full">
+                        <img src="https://images.unsplash.com/photo-1570975640108-2292d83390ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1322&q=80" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                    </div>
+
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Montacute</span></h1>
+
+                    <p class="text-gray-500 dark:text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+                        corrupti doloribus voluptatum eveniet
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+                    <div class="w-full">
+                        <img src="https://images.unsplash.com/photo-1585763466435-adacf5486f1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                    </div>
+
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Cambridge</span></h1>
+
+                    <p class="text-gray-500 dark:text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+                        corrupti doloribus voluptatum eveniet
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
+                    <div class="w-full">
+                        <img src="https://images.unsplash.com/photo-1585763465881-62c5d70627bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                    </div>
+
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Bostón</span></h1>
+
+                    <p class="text-gray-500 dark:text-gray-300">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
+                        corrupti doloribus voluptatum eveniet
+                    </p>
+
+                    <!-- <a href="#" class="flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <span class="mx-1">read more</span>
+                        <svg class="w-4 h-4 mx-1 rtl:-scale-x-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Agregar otra seccion -->
+
+    <!-- Testimonio 1 -->
+    <section class="mt-8">
         <div class="max-w-6xl px-6 py-10 mx-auto">
             <p class="text-xl font-medium text-blue-500 ">Testimonios</p>
 
-            <h1 class="mt-2 text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">
+            <h1 class="mt-2 text-3xl font-semibold capitalize lg:text-4xl text-blue-700">
                 ¿Qué dicen nuestros estudiantes?
             </h1>
 
@@ -134,7 +193,6 @@
                     <template x-for="image in images.slice(currentIndex, currentIndex + 1)" :key="images.indexOf(image)">
                         <img class="h-24 w-24 md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[36rem] lg:w-[26rem] md:rounded-2xl" :src="image.imagen" alt="foto de estudiante">
                     </template>
-                    <!-- <img class="h-24 w-24 md:mx-6 rounded-full object-cover shadow-md md:h-[32rem] md:w-80 lg:h-[36rem] lg:w-[26rem] md:rounded-2xl" src="https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="student photo" /> -->
 
                     <div class="mt-2 md:mx-6">
                         <template x-for="image in images.slice(currentIndex, currentIndex + 1)" :key="images.indexOf(image)">
@@ -164,7 +222,7 @@
         </div>
     </section>
     <!-- Testimonio 2 -->
-    <section class="bg-dark white:bg-gray-800 mt-8">
+    <section class="bg-white dark:bg-gray-800 mt-8">
         <div class="max-w-6xl px-6 py-10 mx-auto">
             <div class="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
                 <div class="absolute w-full bg-blue-700 shadow-xl shadow-blue-700/50 -z-10 md:h-96 rounded-2xl"></div>
@@ -202,6 +260,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+
 </body>
 
 </html>
