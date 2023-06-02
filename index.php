@@ -122,17 +122,17 @@
     <!-- Sedes -->
     <section class="bg-white dark:bg-gray-800 mt-8">
         <div class="container px-6 py-10 mx-auto">
-            <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Explora nuestras 
+            <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Explora nuestras
                 <br> asombrosas <span class="text-blue-500 underline underline-offset-2">Sedes</span>
             </h1>
 
-            <div class="grid grid-cols-1 gap-6 mt-4 xl:mt-8 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 mt-4 xl:mt-8 xl:gap-16 md:grid-cols-2 xl:grid-cols-3">
                 <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
                     <div class="w-full">
-                        <img src="https://images.unsplash.com/photo-1570975640108-2292d83390ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1322&q=80" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1570975640108-2292d83390ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1322&q=80" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl  shadow-lg shadow-blue-400/40">
                     </div>
 
-                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Montacute</span></h1>
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-400 font-semibold underline underline-offset-3"> Montacute</span></h1>
 
                     <p class="text-gray-500 dark:text-gray-300">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
@@ -142,10 +142,10 @@
 
                 <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
                     <div class="w-full">
-                        <img src="https://images.unsplash.com/photo-1585763466435-adacf5486f1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1585763466435-adacf5486f1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl shadow-lg shadow-blue-500/60">
                     </div>
 
-                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Cambridge</span></h1>
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-400 font-semibold underline underline-offset-3"> Cambridge</span></h1>
 
                     <p class="text-gray-500 dark:text-gray-300">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
@@ -155,30 +155,31 @@
 
                 <div class="flex flex-col items-center p-6 space-y-3 text-center bg-gray-100 rounded-xl dark:bg-gray-800">
                     <div class="w-full">
-                        <img src="https://images.unsplash.com/photo-1585763465881-62c5d70627bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1585763465881-62c5d70627bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNlZGUlMjB1bml2ZXJzaWRhZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="mx-auto object-cover h-40 w-40 md:w-80 md:h-96 rounded-xl shadow-lg shadow-blue-400/40">
                     </div>
 
-                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-500 font-bold"> Bostón</span></h1>
+                    <h1 class="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sede <span class="text-blue-400 font-semibold underline underline-offset-3"> Bostón</span></h1>
 
                     <p class="text-gray-500 dark:text-gray-300">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident ab nulla quod dignissimos vel non
                         corrupti doloribus voluptatum eveniet
                     </p>
-
-                    <!-- <a href="#" class="flex items-center -mx-1 text-sm text-blue-500 capitalize transition-colors duration-300 transform dark:text-blue-400 hover:underline hover:text-blue-600 dark:hover:text-blue-500">
-                        <span class="mx-1">read more</span>
-                        <svg class="w-4 h-4 mx-1 rtl:-scale-x-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                    </a> -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- Agregar otra seccion -->
+    <!-- Donacion -->
+    <section class="mt-6">
+        <div class="container px-6 py-10 mx-auto flex flex-col items-center">
+            <h1 class="text-3xl font-bold text-center capitalize lg:text-4xl text-indigo-600 mb-4 drop-shadow-lg">Donaciones
+            </h1>
+            <p class="text-center text-gray-700 font-semibold">Lugar de enseñanza y educación que se imparte como vehículo para salir de la oscuridad, casa creadora de los profesionales por excelencia, hoy está más viva que nunca y necesita de tu aporte en los proyectos generados para la mejora de la ciudad universitaria.</p>
+            <button type="button" class="text-gray-900 bg-orange-400 border border-gray-300 focus:outline-none hover:bg-orange-500 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mt-4 mb-2">Apoyar</button>
+        </div>
+    </section>
 
     <!-- Testimonio 1 -->
-    <section class="mt-8">
+    <section class="bg-white dark:bg-gray-800 mt-6">
         <div class="max-w-6xl px-6 py-10 mx-auto">
             <p class="text-xl font-medium text-blue-500 ">Testimonios</p>
 
@@ -222,7 +223,7 @@
         </div>
     </section>
     <!-- Testimonio 2 -->
-    <section class="bg-white dark:bg-gray-800 mt-8">
+    <section class="mt-8">
         <div class="max-w-6xl px-6 py-10 mx-auto">
             <div class="relative z-20 w-full mt-8 md:flex md:items-center xl:mt-12">
                 <div class="absolute w-full bg-blue-700 shadow-xl shadow-blue-700/50 -z-10 md:h-96 rounded-2xl"></div>
