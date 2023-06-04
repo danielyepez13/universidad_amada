@@ -1,4 +1,14 @@
-<nav x-data="{ isOpen: false, moonSun: false }" :class="moonSun ? 'bg-black white:bg-gray-800' :  'bg-white dark:bg-gray-800'" class="relative shadow">
+<?php
+    // Direccionar al usuario dependiendo de la pagina en la que se encuentre
+    $url= $_SERVER["REQUEST_URI"];
+    $contador_slash = substr_count($url, "/");
+    if($contador_slash == 2){
+        $slash = '';
+    }else{
+        $slash = '../';
+    }
+?>
+<nav x-data="{ isOpen: false, moonSun: false }" :class="moonSun ? 'bg-black white:bg-gray-800' :  'bg-white dark:bg-gray-800'" class="relative shadow" id="menu">
         <div class="container px-6 py-3 mx-auto md:flex">
             <div class="flex items-center justify-between">
                 <div>
@@ -22,9 +32,9 @@
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full', moonSun ? 'bg-black white:bg-gray-800' : 'bg-white dark:bg-gray-800']" @click="isOpen = !isOpen" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:duration-0 md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between">
                 <div class="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
-                    <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Inicio</a>
+                    <a href="<?=$slash?>index.php" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Inicio</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Horarios</a>
-                    <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Carreras</a>
+                    <a href="<?=$slash?>views/facultades.php" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Facultades</a>
                     <a href="#" class="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Sobre Nosotros</a>
                 </div>
 

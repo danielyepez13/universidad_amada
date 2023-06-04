@@ -16,7 +16,7 @@
     <?php include_once("./includes/header.php"); ?>
     
     <!-- Bienvenida -->
-    <div class="md:mt-12 mt-8 mx-4 flex flex-wrap flex-col md:flex-row justify-center" id="bienvenida">
+    <div class="md:mt-12 mt-8 mx-4 flex flex-wrap flex-col md:flex-row justify-center">
         <div class="flex flex-col justify-around max-w-xl">
             <h1 class="text-4xl font-bold text-gray-800 mb-3 text-center">La universidad de tus sueños está justo aquí</h1>
             <div class="hidden md:block">
