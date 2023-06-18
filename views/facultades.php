@@ -16,10 +16,10 @@
     <?php
     ini_set("default_charset", "UTF-8");
     include_once("../includes/header.php");
-    require_once("../helper/carga_id_facul.php");
+    require_once("../helper/facuCargarDatos.php");
+    $data = listarFacultades($db);
     ?>
 
-    <!-- Primera fila -->
     <section class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
             <h1 class="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Facultades</h1>
@@ -31,10 +31,10 @@
             <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
 
                 <?php
-                for ($i = 0; $i < $result->num_rows; $i++) {
+                for ($i = 0; $i < count($data); $i++) {
                 ?>
                     <div class="flex flex-col items-center justify-between p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
-                        <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="carga_imagen_facul.php?id=<?=$data[$i]['id_facul'] ?>" alt="">
+                        <img class="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src="../helper/facultadImg.php?id=<?=$data[$i]['id_facul']?>" alt="">
                         
                         <h1 class="mb-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white text-center"><?=$data[$i]['nombre_facul'] ?></h1>
 
