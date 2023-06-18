@@ -8,7 +8,7 @@ if ($contador_slash == 2) {
     $slash = '../';
 }
 ?>
-<nav x-data="{ isOpen: false}" class="relative shadow bg-white dark:bg-gray-800" id="menu">
+<nav x-data="{ isOpen: false, modelOpen: false}" class="relative shadow bg-white dark:bg-gray-800" id="menu">
     <div class="container px-6 py-3 mx-auto md:flex">
         <div class="flex items-center justify-between">
             <div>
@@ -39,8 +39,8 @@ if ($contador_slash == 2) {
             </div>
 
             <div class="flex flex-col md:flex-row">
-                <div class="flex flex-wrap content-center mr-3" title="Login">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white cursor-pointer" fill="currentColor" viewBox="0 0 16 16" >
+                <div class="flex flex-wrap content-center mr-3" title="Login" @click="modelOpen =!modelOpen">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white cursor-pointer" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                     </svg>
@@ -54,6 +54,45 @@ if ($contador_slash == 2) {
 
                     <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Buscador">
                 </div>
+            </div>
+        </div>
+    </div>
+    <div :class="[modelOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class=" opacity-0 fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
+            <div x-cloak @click="modelOpen = false" :class="[modelOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true"></div>
+
+            <div x-cloak :class="[modelOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
+                <div class="flex items-center justify-between space-x-4">
+                    <h1 class="text-xl font-medium text-gray-800 ">Iniciar Sesión</h1>
+
+                    <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="mt-2 text-sm text-gray-500 ">
+                    Administrador calificaciones, horarios y materias de la universidad
+                </p>
+
+                <form class="mt-5">
+                    <div>
+                        <label for="user name" class="block text-sm text-gray-700 capitalize">cédula</label>
+                        <input placeholder="12345783" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="password" class="block text-sm text-gray-700 capitalize">contraseña</label>
+                        <input type="password" placeholder="*******" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button type="button" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                            Iniciar
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

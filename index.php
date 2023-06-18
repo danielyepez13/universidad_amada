@@ -8,13 +8,12 @@
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
-    <script src="./js/main.js"></script>
 </head>
 
 <body>
     <!-- Menú -->
     <?php include_once("./includes/header.php"); ?>
-    
+
     <!-- Bienvenida -->
     <div class="md:mt-12 mt-8 mx-4 flex flex-wrap flex-col md:flex-row justify-center">
         <div class="flex flex-col justify-around max-w-xl">
@@ -214,6 +213,7 @@
 
     <!-- Footer -->
     <?php include_once("./includes/footer.php"); ?>
+    <script src="./js/main.js"></script>
+</body>
 
-    </body>
 </html>
