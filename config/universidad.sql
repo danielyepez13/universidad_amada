@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-06-2023 a las 04:24:03
+-- Tiempo de generación: 01-07-2023 a las 06:04:25
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 7.0.2
 
@@ -42,6 +42,7 @@ CREATE TABLE `calificaciones` (
 
 CREATE TABLE `carreras` (
   `id_car` int(11) NOT NULL,
+  `id_facultad` int(11) NOT NULL,
   `id_pensum` int(11) NOT NULL,
   `nombre_carrera` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -83,7 +84,7 @@ CREATE TABLE `estudiantes` (
 
 CREATE TABLE `facultades` (
   `id_facul` int(11) NOT NULL,
-  `nombre_facul` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre_facul` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
   `img_facul` longblob,
   `status_facul` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
@@ -160,8 +161,29 @@ CREATE TABLE `profesores` (
   `id_prof` int(11) NOT NULL,
   `nombre_prof` varchar(50) NOT NULL,
   `apellido_prof` varchar(50) NOT NULL,
-  `cedula_prof` int(11) NOT NULL
+  `cedula_prof` int(11) NOT NULL,
+  `correo_prof` varchar(200) NOT NULL,
+  `fecha_registro_prof` date NOT NULL,
+  `estatus_prof` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `profesores`
+--
+
+INSERT INTO `profesores` (`id_prof`, `nombre_prof`, `apellido_prof`, `cedula_prof`, `correo_prof`, `fecha_registro_prof`, `estatus_prof`) VALUES
+(1, 'Daniel Alejandro', 'Yépez León', 28312780, 'danielyepez62@gmail.com', '2023-06-23', 1),
+(2, 'Diego Antonio', 'Franco Escamilla', 28312781, 'diego@gmail.com', '2023-06-23', 1),
+(3, 'Alejandra Josefina', 'Diagonal Asterisco', 28312782, 'ale@gmail.com', '2023-06-23', 1),
+(4, 'Marvel Cine', 'DC Comics', 28312784, 'dualipa@gmail.com', '2023-06-23', 1),
+(5, 'prueba5', 'prueba5a', 28312783, 'prueba5@gmail.com', '2023-06-23', 1),
+(6, 'prueba6', 'prueba6a', 28312785, 'prueba6@gmail.com', '2023-06-23', 1),
+(7, 'prueba7', 'prueba7a', 28312786, 'prueba7@gmail.com', '2023-06-23', 1),
+(8, 'prueba8', 'prueba8a', 28312787, 'prueba8@gma.c', '2023-06-23', 1),
+(9, 'prueba8', 'prueba8a', 28312789, 'prueba8@gmail.com', '2023-06-23', 1),
+(10, 'prueba9', 'prueba9a', 28312790, 'prueba9@gmail.com', '2023-06-23', 1),
+(11, 'prueba10', 'prueba10a', 28312791, 'prueba10@gmail', '2023-06-23', 0),
+(12, 'Lixy', 'Leon', 28312793, 'lixy@gmail.com', '2023-07-01', 1);
 
 -- --------------------------------------------------------
 
@@ -240,7 +262,8 @@ ALTER TABLE `pensum`
 -- Indices de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  ADD PRIMARY KEY (`id_prof`);
+  ADD PRIMARY KEY (`id_prof`),
+  ADD UNIQUE KEY `cedula_prof` (`cedula_prof`);
 
 --
 -- Indices de la tabla `profesor_materia`
@@ -298,7 +321,7 @@ ALTER TABLE `pensum`
 -- AUTO_INCREMENT de la tabla `profesores`
 --
 ALTER TABLE `profesores`
-  MODIFY `id_prof` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_prof` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `profesor_materia`
 --
