@@ -47,4 +47,14 @@
         $registro = selectProfesores($db);
         return $registro;
     }
+
+    function buscarProfesores($db, $buscar){
+        $query = "SELECT * FROM profesores WHERE nombre_prof LIKE '%$buscar%' OR apellido_prof LIKE '%$buscar%' OR cedula_prof LIKE '%$buscar%' OR correo_prof LIKE '%$buscar%' OR fecha_registro_prof LIKE '%$buscar%'";
+        $resultado = $db->query($query);
+        $registros = array();
+        while($fila = $resultado->fetch_assoc()){
+            $registros[]=$fila;
+        }
+        return $registros;
+    }
 ?>

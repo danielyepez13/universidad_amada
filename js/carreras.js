@@ -1,19 +1,22 @@
 // Inicializacion asincronica de alpine
 document.addEventListener('alpine:init', async () => {
-    Alpine.store('profesStore', {
-        profesores: [],
-        profesor: [],
+    Alpine.store('carrerasStore', {
+        carreras: [],
+        facultades: [],
+        pensum: [],
+        carrera: [],
         currentPage: 1,
         pageSize: 10,
         selectedItem: 0,
-        modifProf: 0,
+        modifCar: 0,
+        id_facul_modif: 0,
         notification: {
             open: false,
             message: ''
         },
 
         get pageCount() {
-            return Math.ceil(this.profesores.length / this.pageSize);
+            return Math.ceil(this.carreras.length / this.pageSize);
         },
         get startIndex() {
             return (this.currentPage - 1) * this.pageSize;
@@ -21,42 +24,32 @@ document.addEventListener('alpine:init', async () => {
         get endIndex() {
             return this.startIndex + this.pageSize;
         },
-        get pagedProfes() {
-            return this.profesores.slice(this.startIndex, this.endIndex);
+        get pagedCarreras() {
+            return this.carreras.slice(this.startIndex, this.endIndex);
         },
         closeNotification() {
             this.notification.open = false;
         },
-        async search(){
-            let buscar = document.getElementById('buscador').value;
-            await fetch(`../controllers/Profesores/buscador.php?buscar=${buscar}`, {
-                method: 'GET',
-            })
-                .then((response) => response.json())
-                .then((profesores) => {
-                    this.profesores = profesores;
-                });
-        },
         // Funcion para cargar los regisros
         async load() {
-            await fetch('../controllers/Profesores/listar.php', {
+            await fetch('../controllers/Carreras/listar.php', {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((profesores) => {
-                    this.profesores = profesores;
+                .then((carreras) => {
+                    this.carreras = carreras;
                 });
         },
-        async addProf() {
-            let formulario = new FormData(document.getElementById("regisProfes"))
-            await fetch('../controllers/Profesores/registrar.php', {
+        async addCarre() {
+            let formulario = new FormData(document.getElementById("regisCarreras"))
+            await fetch('../controllers/Carreras/registrar.php', {
                 method: 'POST',
                 body: formulario,
             })
                 .then((response) => response.json())
-                .then((profesores) => {
+                .then((carreras) => {
                     // añadir al principio el nuevo registro
-                    this.profesores.unshift(profesores);
+                    this.carreras.unshift(carreras);
 
                     // Añade notificación de que se añadió correctamente
                     if (this.notification.open) return;
@@ -72,25 +65,25 @@ document.addEventListener('alpine:init', async () => {
                 }
                 );
         },
-        async viewProf(item) {
+        async viewCarre(item) {
             this.selectedItem = item;
         },
-        async editProf(prof) {
-            this.modifProf = prof;
+        async editCar(car) {
+            this.modifCar = car;
         },
-        async modificarProf() {
-            let formulario = new FormData(document.getElementById("modifProfes"))
-            await fetch('../controllers/Profesores/modificar.php', {
+        async modificarCar() {
+            let formulario = new FormData(document.getElementById("modifCarreras"))
+            await fetch('../controllers/Carreras/modificar.php', {
                 method: 'POST',
                 body: formulario,
             })
                 .then((response) => response.json())
-                .then((updatedUser) => {
-                    this.profesores = this.profesores.map((user) => {
-                        if (user.id_prof === updatedUser.id_prof) {
-                            return updatedUser;
+                .then((updatedCar) => {
+                    this.carreras = this.carreras.map((car) => {
+                        if (car.id_car === updatedCar.id_car) {
+                            return updatedCar;
                         }
-                        return user;
+                        return car;
                     });
                     // Notificacion
                     if (this.notification.open) return;
@@ -106,14 +99,14 @@ document.addEventListener('alpine:init', async () => {
                 }
                 );
         },
-        async deshabilitarProf(id) {
-            await fetch(`../controllers/Profesores/deshabilitar.php?id=${id}`, {
+        async deshabilitarCarre(id) {
+            await fetch(`../controllers/Carreras/deshabilitar.php?id=${id}`, {
                 method: 'POST',
             })
                 .then((response) => response.json())
-                .then((profesores) => {
-                    // Lista nueva de profesores
-                    this.profesores = profesores;
+                .then((carreras) => {
+                    // Lista nueva de carreras
+                    this.carreras = carreras;
 
                     // Notificacion
                     if (this.notification.open) return;
@@ -128,13 +121,13 @@ document.addEventListener('alpine:init', async () => {
                     }, 5000);
                 });
         },
-        async habilitarProf(id) {
-            await fetch(`../controllers/Profesores/habilitar.php?id=${id}`, {
+        async habilitarCarre(id) {
+            await fetch(`../controllers/Carreras/habilitar.php?id=${id}`, {
                 method: 'POST',
             })
                 .then((response) => response.json())
-                .then((profesores) => {
-                    this.profesores = profesores;
+                .then((carreras) => {
+                    this.carreras = carreras;
 
                     // Notificacion
                     if (this.notification.open) return;
@@ -149,8 +142,33 @@ document.addEventListener('alpine:init', async () => {
                     }, 5000);
                 });
         },
-        async comprobacionCedulaProf(){
-            
-        }
+        async search() {
+            let buscar = document.getElementById('buscador').value;
+            await fetch(`../controllers/Carreras/buscador.php?buscar=${buscar}`, {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((carreras) => {
+                    this.carreras = carreras;
+                });
+        },
+        async listarFacultades() {
+            await fetch('../controllers/Carreras/select.php?select=facu', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((facultades) => {
+                    this.facultades = facultades;
+                });
+        },
+        async listarPensum() {
+            await fetch('../controllers/Carreras/select.php?select=pensum', {
+                method: 'GET',
+            })
+                .then((response) => response.json())
+                .then((pensum) => {
+                    this.pensum = pensum;
+                });
+        },
     });
 })
