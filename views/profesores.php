@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['cedula'])) {
+    header("Location: ../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -168,7 +175,7 @@
                                     <button class="px-4 py-2 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded text-white mr-5" :disabled="$store.profesStore.currentPage == 1" @click="$store.profesStore.currentPage--">
                                         Anterior
                                     </button>
-    
+
                                     <button class="px-4 py-2 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded text-white" :disabled="$store.profesStore.currentPage >= $store.profesStore.pageCount" @click="$store.profesStore.currentPage++">
                                         Siguiente
                                     </button>
