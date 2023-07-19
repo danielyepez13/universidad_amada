@@ -1,10 +1,6 @@
-<?php
-session_start();
-if (empty($_SESSION['cedula'])) {
-    header("Location: ../index.php");
-}
+<?php 
+    include('../includes/sessionStart.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 

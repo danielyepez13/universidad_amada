@@ -5,14 +5,13 @@
                 <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" class="w-32" alt="tailus logo">
             </a>
         </div>
-
         <div class="mt-8 text-center">
-            <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt="" class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
-            <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
-            <span class="hidden text-gray-400 lg:block">Admin</span>
+            <!-- <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt="" class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"> -->
+            <h5 class="mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
+            <span class="text-gray-400 lg:block">Admin</span>
         </div>
 
-        <ul class="space-y-2 tracking-wide mt-8 bg-white border-b">
+        <ul class="space-y-2 tracking-wide mt-8 bg-white border-b p-2">
             <li>
                 <a href="dashboard.php" aria-label="dashboard" class="relative px-4 py-3 flex items-center space-x-4 rounded-xl <?= ($vista == 'dashboard') ? 'text-white bg-gradient-to-r from-sky-600 to-cyan-400' : 'text-gray-600 group' ?>">
                     <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
@@ -57,6 +56,15 @@
                         <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
                     </svg>
                     <span class="group-hover:text-gray-700">Profesores</span>
+                </a>
+            </li>
+            <li>
+                <a href="usuarios.php" class="px-4 py-3 flex items-center space-x-4 rounded-xl <?= ($vista == 'usuarios') ? 'text-white bg-gradient-to-r from-sky-600 to-cyan-400' : 'text-gray-600 group' ?>">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                        <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="group-hover:text-gray-700">Usuarios</span>
                 </a>
             </li>
             <li>

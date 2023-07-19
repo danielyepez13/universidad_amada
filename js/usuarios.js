@@ -1,21 +1,21 @@
 // Inicializacion asincronica de alpine
 document.addEventListener('alpine:init', async () => {
-    Alpine.store('carrerasStore', {
-        carreras: [],
-        facultades: [],
-        pensum: [],
+    Alpine.store('usuariosStore', {
+        usuarios: [],
+        roles: [],
         carrera: [],
         currentPage: 1,
         pageSize: 10,
         selectedItem: 0,
         modifCar: 0,
+        cedulaEncontrada: '',
         notification: {
             open: false,
             message: ''
         },
 
         get pageCount() {
-            return Math.ceil(this.carreras.length / this.pageSize);
+            return Math.ceil(this.usuarios.length / this.pageSize);
         },
         get startIndex() {
             return (this.currentPage - 1) * this.pageSize;
@@ -23,32 +23,32 @@ document.addEventListener('alpine:init', async () => {
         get endIndex() {
             return this.startIndex + this.pageSize;
         },
-        get pagedCarreras() {
-            return this.carreras.slice(this.startIndex, this.endIndex);
+        get pagedUsuarios() {
+            return this.usuarios.slice(this.startIndex, this.endIndex);
         },
         closeNotification() {
             this.notification.open = false;
         },
         // Funcion para cargar los regisros
         async load() {
-            await fetch('../controllers/Carreras/listar.php', {
+            await fetch('../controllers/Usuarios/listar.php', {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((carreras) => {
-                    this.carreras = carreras;
+                .then((usuarios) => {
+                    this.usuarios = usuarios;
                 });
         },
-        async addCarre() {
-            let formulario = new FormData(document.getElementById("regisCarreras"))
-            await fetch('../controllers/Carreras/registrar.php', {
+        async addUsu() {
+            let formulario = new FormData(document.getElementById("regisUsuarios"))
+            await fetch('../controllers/Usuarios/registrar.php', {
                 method: 'POST',
                 body: formulario,
             })
                 .then((response) => response.json())
-                .then((carreras) => {
+                .then((usuarios) => {
                     // añadir al principio el nuevo registro
-                    this.carreras.unshift(carreras);
+                    this.usuarios.unshift(usuarios);
 
                     // Añade notificación de que se añadió correctamente
                     if (this.notification.open) return;
@@ -71,14 +71,14 @@ document.addEventListener('alpine:init', async () => {
             this.modifCar = car;
         },
         async modificarCar() {
-            let formulario = new FormData(document.getElementById("modifCarreras"))
-            await fetch('../controllers/Carreras/modificar.php', {
+            let formulario = new FormData(document.getElementById("modifusuarios"))
+            await fetch('../controllers/Usuarios/modificar.php', {
                 method: 'POST',
                 body: formulario,
             })
                 .then((response) => response.json())
                 .then((updatedCar) => {
-                    this.carreras = this.carreras.map((car) => {
+                    this.usuarios = this.usuarios.map((car) => {
                         if (car.id_car === updatedCar.id_car) {
                             return updatedCar;
                         }
@@ -99,13 +99,13 @@ document.addEventListener('alpine:init', async () => {
                 );
         },
         async deshabilitarCarre(id) {
-            await fetch(`../controllers/Carreras/deshabilitar.php?id=${id}`, {
+            await fetch(`../controllers/Usuarios/deshabilitar.php?id=${id}`, {
                 method: 'POST',
             })
                 .then((response) => response.json())
-                .then((carreras) => {
-                    // Lista nueva de carreras
-                    this.carreras = carreras;
+                .then((usuarios) => {
+                    // Lista nueva de usuarios
+                    this.usuarios = usuarios;
 
                     // Notificacion
                     if (this.notification.open) return;
@@ -121,12 +121,12 @@ document.addEventListener('alpine:init', async () => {
                 });
         },
         async habilitarCarre(id) {
-            await fetch(`../controllers/Carreras/habilitar.php?id=${id}`, {
+            await fetch(`../controllers/Usuarios/habilitar.php?id=${id}`, {
                 method: 'POST',
             })
                 .then((response) => response.json())
-                .then((carreras) => {
-                    this.carreras = carreras;
+                .then((usuarios) => {
+                    this.usuarios = usuarios;
 
                     // Notificacion
                     if (this.notification.open) return;
@@ -143,31 +143,31 @@ document.addEventListener('alpine:init', async () => {
         },
         async search() {
             let buscar = document.getElementById('buscador').value;
-            await fetch(`../controllers/Carreras/buscador.php?buscar=${buscar}`, {
+            await fetch(`../controllers/Usuarios/buscador.php?buscar=${buscar}`, {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((carreras) => {
-                    this.carreras = carreras;
+                .then((usuarios) => {
+                    this.usuarios = usuarios;
                 });
         },
-        async listarFacultades() {
-            await fetch('../controllers/Carreras/select.php?select=facu', {
+        async listarRoles() {
+            await fetch('../controllers/Usuarios/select.php', {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((facultades) => {
-                    this.facultades = facultades;
+                .then((roles) => {
+                    this.roles = roles;
                 });
         },
-        async listarPensum() {
-            await fetch('../controllers/Carreras/select.php?select=pensum', {
+        async buscarCedula(cedula){
+            await fetch('../controllers/Usuarios/buscarCedula.php', {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((pensum) => {
-                    this.pensum = pensum;
+                .then((roles) => {
+                    this.roles = roles;
                 });
-        },
+        }
     });
 })
