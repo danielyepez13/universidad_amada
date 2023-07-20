@@ -30,7 +30,7 @@
             <div class="px-6 pt-6 2xl:container">
                 <div class="px-4 md:px-10 py-4 md:py-7">
                     <div class="flex items-center justify-between">
-                        <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Profesores</p>
+                        <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Carreras</p>
                     </div>
                 </div>
                 <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10" x-data x-init="$store.carrerasStore.load()">
@@ -232,7 +232,7 @@
                                     </div>
 
                                     <p class="mt-2 text-sm text-gray-500">
-                                        Modificación de datos personales del profesor
+                                        Modificación de los datos de la carrera
                                     </p>
 
                                     <form class="mt-5" id="modifCarreras" x-on:submit.prevent="$store.carrerasStore.modificarCar()">
@@ -245,7 +245,7 @@
                                         <div class="mt-3">
                                             <label for="modif_facultad" class="block text-sm text-gray-700 capitalize">facultad</label>
                                             <select name="modif_facultad" id="modif_facultad" x-data="$store.carrerasStore.listarFacultades()" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                                <option value="" selected disabled>Modificar la carrera escogida</option>
+                                                <option value="" selected disabled>Modificar la facultad escogida</option>
                                                 <template x-for="facul in $store.carrerasStore.facultades">
                                                     <option value="" :class="[$store.carrerasStore.modifCar.id_facultad != facul.id_facul ? '' : 'hidden']" x-bind:value="facul.id_facul" x-text="facul.nombre_facul"></option>
                                                 </template>
