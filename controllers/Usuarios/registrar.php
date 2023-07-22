@@ -5,7 +5,7 @@
 
     // Declaración de variables
     $cedula = $_POST['cedula'];
-    $rol = $_POST['rol'];
+    $rol = $_POST['roles'];
     $fecha_registro = $_POST['fecha_registro'];
 
     // Se guarda el resultado de la función del modelo en una variable

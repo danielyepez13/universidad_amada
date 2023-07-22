@@ -1,8 +1,8 @@
 <?php
   include_once "../../helper/conexion.php";
-  require_once '../../models/carrerasModel.php';
+  require_once '../../models/usuariosModel.php';
   $buscar = $_GET['buscar'];
-  $registros =  buscarCarreras($db, $buscar);
+  $registros =  buscarUsuarios($db, $buscar);
 
   // Devolver los registros al cliente en formato JSON
   header('Content-Type: application/json');
