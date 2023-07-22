@@ -1,6 +1,6 @@
 <?php
     function selectUsuarios($db){
-        $query = "SELECT u.id_usuario, u.cedula, u.fecha_registro_usu, u.estatus_usuario, r.id_rol, r.nombre_rol FROM usuarios as u INNER JOIN roles as r ON u.rol = r.id_rol ORDER BY u.estatus_usuario DESC, u.id_usuario DESC";
+        $query = "SELECT u.id_usuario, u.cedula, u.rol, u.fecha_registro_usu, u.estatus_usuario, r.id_rol, r.nombre_rol FROM usuarios as u INNER JOIN roles as r ON u.rol = r.id_rol ORDER BY u.estatus_usuario DESC, u.id_usuario DESC";
         $resultado = $db->query($query);
         $registros = array();
         while($fila = $resultado->fetch_assoc()){
@@ -10,7 +10,7 @@
     }
 
     function selectUsuario($db, $id){
-        $query = "SELECT u.id_usuario, u.cedula, u.fecha_registro_usu, u.estatus_usuario, r.id_rol, r.nombre_rol FROM usuarios as u INNER JOIN roles as r ON u.rol = r.id_rol ORDER BY u.estatus_usuario DESC, u.id_usuario DESC WHERE u.id_usuario = $id";
+        $query = "SELECT u.id_usuario, u.cedula, u.rol, u.fecha_registro_usu, u.estatus_usuario, r.id_rol, r.nombre_rol FROM usuarios as u INNER JOIN roles as r ON u.rol = r.id_rol WHERE u.id_usuario = $id";
         $resultado = $db->query($query);
         $registros = '';
         while($fila = $resultado->fetch_assoc()){
@@ -33,39 +33,33 @@
         $query = "INSERT INTO usuarios (cedula, rol, fecha_registro_usu) VALUES ('$cedula',$rol,'$date')";
         $resultado = $db->query($query);
         $id = $db->insert_id;
-        $registro = selectCarrera($db, $id);
+        $registro = selectUsuario($db, $id);
         return $registro;
     }
 
-    function modificarCarreras($db, $id, $nombre, $facultad, $pensum){
-        $añadido = '';
-        if($facultad != ''){
-            $añadido .= ", id_facultad = $facultad";
-        }else if($pensum != ''){
-            $añadido .= ", id_pensum = $pensum";
-        }
-        $query = "UPDATE carreras SET nombre_carrera = '$nombre' $añadido WHERE id_car = $id";
+    function modificarUsuarios($db, $id, $cedula, $rol){
+        $query = "UPDATE usuarios SET cedula = '$cedula', rol = $rol WHERE id_usuario = $id";
         $resultado = $db->query($query);
-        $registro = selectCarrera($db, $id);
+        $registro = selectUsuario($db, $id);
         return $registro;
     }
 
-    function deshabilitarCarreras($db, $id){
-        $query = "UPDATE carreras SET estatus_carre = 0 WHERE id_car = $id";
+    function deshabilitarUsuarios($db, $id){
+        $query = "UPDATE usuarios SET estatus_usuario = 0 WHERE id_usuario = $id";
         $resultado = $db->query($query);
-        $registro = selectCarreras($db);
+        $registro = selectUsuarios($db);
         return $registro;
     }
 
-    function habilitarCarreras($db, $id){
-        $query = "UPDATE carreras SET estatus_carre = 1 WHERE id_car = $id";
+    function habilitarUsuarios($db, $id){
+        $query = "UPDATE usuarios SET estatus_usuario = 1 WHERE id_usuario = $id";
         $resultado = $db->query($query);
-        $registro = selectCarreras($db);
+        $registro = selectUsuarios($db);
         return $registro;
     }
 
-    function buscarCarreras($db, $buscar){
-        $query = "SELECT c.nombre_carrera, c.fecha_registro_carre, f.nombre_facul, p.nombre_pens FROM carreras as c INNER JOIN facultades as f ON c.id_facultad = f.id_facul INNER JOIN pensum as p ON c.id_pensum = p.id_pensum WHERE c.nombre_carrera LIKE '%$buscar%' OR c.fecha_registro_carre LIKE '%$buscar%' OR f.nombre_facul LIKE '%$buscar%' OR p.nombre_pens LIKE '%$buscar%' ";
+    function buscarUsuarios($db, $buscar){
+        $query = "SELECT u.id_usuario, u.cedula, u.rol, u.fecha_registro_usu, u.estatus_usuario, r.id_rol, r.nombre_rol FROM usuarios as u INNER JOIN roles as r ON u.rol = r.id_rol WHERE u.cedula LIKE '%$buscar%' OR u.fecha_registro_usu LIKE '%$buscar%' OR r.nombre_rol LIKE '%$buscar%'";
         $resultado = $db->query($query);
         $registros = array();
         while($fila = $resultado->fetch_assoc()){

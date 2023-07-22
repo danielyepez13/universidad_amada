@@ -1,17 +1,15 @@
 <?php
     // Incluyendo archivos adicionales
     include_once "../../helper/conexion.php";
-    require_once '../../models/carrerasModel.php';
+    require_once '../../models/usuariosModel.php';
 
     // Declaración de variables
-    // $id = $_POST['id_prof'];
-    $id = $_POST['modif_id_car'];
-    $nombre = $_POST['modif_nombre'];
-    $facultad = !empty($_POST['modif_facultad']) ? $_POST['modif_facultad'] : '';
-    $pensum = !empty($_POST['modif_pensum']) ? $_POST['modif_pensum'] : '';
+    $id = $_POST['modif_id_usu'];
+    $cedula = $_POST['modif_cedula'];
+    $rol = $_POST['modif_rol'];
 
-    $registros =  modificarCarreras($db, $id, $nombre, $facultad, $pensum);
-    // $registros = $_POST;
+    $registros =  modificarUsuarios($db, $id, $cedula, $rol);
+    
     // Devolver los registros al cliente en formato JSON
     header('Content-Type: application/json');
     echo json_encode($registros);

@@ -135,9 +135,9 @@
                                             x-cloak @click="$store.usuariosStore.editCar(usu)">Editar</button>
                                         </td>
                                         <td class="pl-4">
-                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-red-200 focus:outline-none" x-on:click="$store.usuariosStore.deshabilitarCarre(usu.id_usuario)" x-show="usu.estatus_usuario != 0">Deshabilitar</button>
+                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-red-200 focus:outline-none" x-on:click="$store.usuariosStore.deshabilitarUsu(usu.id_usuario)" x-show="usu.estatus_usuario != 0">Deshabilitar</button>
 
-                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-red-200 focus:outline-none" x-on:click="$store.usuariosStore.habilitarCarre(usu.id_usuario)" x-show="usu.estatus_usuario != 1">Habilitar</button>
+                                            <button class="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded hover:bg-red-200 focus:outline-none" x-on:click="$store.usuariosStore.habilitarUsu(usu.id_usuario)" x-show="usu.estatus_usuario != 1">Habilitar</button>
                                         </td>
                                     </tr>
                                     <tr class="h-3"></tr>
@@ -161,13 +161,13 @@
                             </div>
                         </template>
                         <!-- Visualizar modal -->
-                        <!-- <div :class="[$store.usuariosStore.selectedItem ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" class="opacity-0 fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                        <div :class="[$store.usuariosStore.selectedItem ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" class="opacity-0 fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                             <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
                                 <div x-cloak @click="$store.usuariosStore.selectedItem = 0" :class="[$store.usuariosStore.selectedItem ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true"></div>
 
                                 <div x-cloak :class="[$store.usuariosStore.selectedItem ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
                                     <div class="flex items-center justify-between space-x-4">
-                                        <h1 class="text-xl font-medium text-gray-800 ">Visualización datos carrera</h1>
+                                        <h1 class="text-xl font-medium text-gray-800 ">Visualización datos usuario</h1>
 
                                         <button @click="$store.usuariosStore.selectedItem = 0" class="text-gray-600 focus:outline-none hover:text-gray-700">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -177,38 +177,34 @@
                                     </div>
 
                                     <p class="mt-2 text-sm text-gray-500">
-                                        Visualización detallada de datos de la carrera
+                                        Visualización detallada de datos del usuario
                                     </p>
 
                                     <div class="mt-5">
                                         <div>
-                                            <p class="block text-sm text-gray-700 capitalize">nombre carrera</p>
-                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.nombre_carrera"></p>
+                                            <p class="block text-sm text-gray-700 capitalize">cédula usuario</p>
+                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.cedula"></p>
                                         </div>
                                         <div class="mt-3">
-                                            <p class="block text-sm text-gray-700 capitalize">facultad</p>
-                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.nombre_facul"></p>
+                                            <p class="block text-sm text-gray-700 capitalize">rol</p>
+                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.nombre_rol"></p>
                                         </div>
                                         <div class="mt-3">
-                                            <p class="block text-sm text-gray-700 capitalize">pensum</p>
-                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.nombre_pens"></p>
-                                        </div>
-                                        <div class="mt-3">
-                                            <p class="block text-sm text-gray-700 capitalize">Fecha registro</p>
-                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.fecha_registro_carre"></p>
+                                            <p class="block text-sm text-gray-700 capitalize">fecha registro</p>
+                                            <p class="block text-sm text-gray-700" x-text="$store.usuariosStore.selectedItem.fecha_registro_usu"></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- Editar modal -->
-                        <!-- <div :class="[$store.usuariosStore.modifCar ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" class="opacity-0 fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                        <div :class="[$store.usuariosStore.modifCar ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" class="opacity-0 fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                             <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
                                 <div x-cloak @click="$store.usuariosStore.modifCar = 0" :class="[$store.usuariosStore.modifCar ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-40" aria-hidden="true"></div>
 
                                 <div x-cloak :class="[$store.usuariosStore.modifCar ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full']" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
                                     <div class="flex items-center justify-between space-x-4">
-                                        <h1 class="text-xl font-medium text-gray-800 ">Edición de datos de la carrera</h1>
+                                        <h1 class="text-xl font-medium text-gray-800 ">Edición de datos del usuario</h1>
 
                                         <button @click="$store.usuariosStore.modifCar = 0" class="text-gray-600 focus:outline-none hover:text-gray-700">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -218,31 +214,21 @@
                                     </div>
 
                                     <p class="mt-2 text-sm text-gray-500">
-                                        Modificación de datos personales del profesor
+                                        Modificación de datos personales del usuario
                                     </p>
 
-                                    <form class="mt-5" id="modifCarreras" x-on:submit.prevent="$store.usuariosStore.modificarCar()">
+                                    <form class="mt-5" id="modifUsuarios" x-on:submit.prevent="$store.usuariosStore.modificarUsu()">
                                         <div>
-                                            <input type="hidden" name="modif_id_car" id="modif_id_car" x-model="$store.usuariosStore.modifCar.id_car">
-                                            <input type="hidden" value="" id="modif_id_pensum" x-model="$store.usuariosStore.modifCar.id_pensum" >
-                                            <p class="block text-sm text-gray-700 capitalize">nombre carrera</p>
-                                            <input type="text" name="modif_nombre" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" id="modif_nombre" x-model="$store.usuariosStore.modifCar.nombre_carrera">
+                                            <input type="hidden" name="modif_id_usu" id="modif_id_usu" x-model="$store.usuariosStore.modifCar.id_usuario">
+                                            <p class="block text-sm text-gray-700 capitalize">cédula</p>
+                                            <input type="text" name="modif_cedula" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" id="modif_cedula" x-model="$store.usuariosStore.modifCar.cedula">
                                         </div>
                                         <div class="mt-3">
-                                            <label for="modif_facultad" class="block text-sm text-gray-700 capitalize">facultad</label>
-                                            <select name="modif_facultad" id="modif_facultad" x-data="$store.usuariosStore.listarFacultades()" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                                <option value="" selected disabled>Modificar la carrera escogida</option>
-                                                <template x-for="facul in $store.usuariosStore.facultades">
-                                                    <option value="" :class="[$store.usuariosStore.modifCar.id_facultad != facul.id_facul ? '' : 'hidden']" x-bind:value="facul.id_facul" x-text="facul.nombre_facul"></option>
-                                                </template>
-                                            </select>
-                                        </div>
-                                        <div class="mt-3">
-                                            <label for="modif_pensum" class="block text-sm text-gray-700 capitalize">pensum</label>
-                                            <select name="modif_pensum" id="modif_pensum" x-data="$store.usuariosStore.listarPensum()" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
-                                                <option value=""  disabled selected>Modificar el pensum escogido</option>
-                                                <template x-for="pen in $store.usuariosStore.pensum">
-                                                    <option value="" :class="[$store.usuariosStore.modifCar.id_pensum != pen.id_pensum ? '' : 'hidden']" x-bind:value="pen.id_pensum" x-text="pen.nombre_pens"></option>
+                                            <label for="modif_rol" class="block text-sm text-gray-700 capitalize">rol</label>
+                                            <select name="modif_rol" id="modif_rol" x-data="$store.usuariosStore.listarRoles()" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40">
+                                                <option value="" selected disabled>Modificar el rol escogido</option>
+                                                <template x-for="rol in $store.usuariosStore.roles">
+                                                    <option value="" :class="[$store.usuariosStore.modifCar.rol != rol.id_rol ? '' : 'hidden']" x-bind:value="rol.id_rol" x-text="rol.nombre_rol"></option>
                                                 </template>
                                             </select>
                                         </div>
@@ -252,7 +238,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <!-- Notificacion -->
                         <button type="button" @click="$store.usuariosStore.closeNotification()" x-show="$store.usuariosStore.notification.open" x-transition.duration.300ms>
                             <div class="fixed right-4 bottom-12 z-50 rounded-md px-4 py-2 text-white transition bg-green-500 hover:bg-green-600">

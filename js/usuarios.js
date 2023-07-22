@@ -3,7 +3,6 @@ document.addEventListener('alpine:init', async () => {
     Alpine.store('usuariosStore', {
         usuarios: [],
         roles: [],
-        carrera: [],
         currentPage: 1,
         pageSize: 10,
         selectedItem: 0,
@@ -70,19 +69,19 @@ document.addEventListener('alpine:init', async () => {
         async editCar(car) {
             this.modifCar = car;
         },
-        async modificarCar() {
-            let formulario = new FormData(document.getElementById("modifusuarios"))
+        async modificarUsu() {
+            let formulario = new FormData(document.getElementById("modifUsuarios"))
             await fetch('../controllers/Usuarios/modificar.php', {
                 method: 'POST',
                 body: formulario,
             })
                 .then((response) => response.json())
-                .then((updatedCar) => {
-                    this.usuarios = this.usuarios.map((car) => {
-                        if (car.id_car === updatedCar.id_car) {
-                            return updatedCar;
+                .then((updatedUsu) => {
+                    this.usuarios = this.usuarios.map((usu) => {
+                        if (usu.id_usuario === updatedUsu.id_usuario) {
+                            return updatedUsu;
                         }
-                        return car;
+                        return usu;
                     });
                     // Notificacion
                     if (this.notification.open) return;
@@ -98,7 +97,7 @@ document.addEventListener('alpine:init', async () => {
                 }
                 );
         },
-        async deshabilitarCarre(id) {
+        async deshabilitarUsu(id) {
             await fetch(`../controllers/Usuarios/deshabilitar.php?id=${id}`, {
                 method: 'POST',
             })
@@ -120,7 +119,7 @@ document.addEventListener('alpine:init', async () => {
                     }, 5000);
                 });
         },
-        async habilitarCarre(id) {
+        async habilitarUsu(id) {
             await fetch(`../controllers/Usuarios/habilitar.php?id=${id}`, {
                 method: 'POST',
             })
