@@ -81,7 +81,8 @@
                                             </div>
                                             <div>
                                                 <label for="cedula" class="block text-sm text-gray-700 capitalize">cédula</label>
-                                                <input name="cedula" id="cedula" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" x-on:input.change="console.log(cedula.value)">
+                                                <input name="cedula" id="cedula" type="text" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" x-on:input.change="$store.usuariosStore.buscarCedula(cedula.value)">
+                                                <span class="text-red-600" x-show="$store.usuariosStore.cedulaEncontrada">La cédula coincide en la base de datos</span>
                                             </div>
                                             <div class="mt-3">
                                                 <label for="roles" class="block text-sm text-gray-700 capitalize">roles</label>
@@ -94,7 +95,7 @@
                                             </div>
 
                                             <div class="flex justify-end mt-6">
-                                                <input type="submit" value="Registrar" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 cursor-pointer">
+                                                <input type="submit" value="Registrar" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50 cursor-pointer" x-bind:disabled="$store.usuariosStore.cedulaEncontrada">
                                             </div>
                                         </form>
                                     </div>

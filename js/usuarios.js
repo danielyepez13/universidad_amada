@@ -7,7 +7,7 @@ document.addEventListener('alpine:init', async () => {
         pageSize: 10,
         selectedItem: 0,
         modifCar: 0,
-        cedulaEncontrada: '',
+        cedulaEncontrada: false,
         notification: {
             open: false,
             message: ''
@@ -160,12 +160,17 @@ document.addEventListener('alpine:init', async () => {
                 });
         },
         async buscarCedula(cedula){
-            await fetch('../controllers/Usuarios/buscarCedula.php', {
+            await fetch('../controllers/Usuarios/buscarCedula.php?ced='+cedula, {
                 method: 'GET',
             })
                 .then((response) => response.json())
-                .then((roles) => {
-                    this.roles = roles;
+                .then((encuentro) => {
+                    console.log(encuentro)
+                    if(encuentro.cedula){
+                        this.cedulaEncontrada = true;
+                    }else{
+                        this.cedulaEncontrada = false;
+                    }
                 });
         }
     });

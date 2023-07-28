@@ -67,4 +67,16 @@
         }
         return $registros;
     }
+
+    function buscarCedula($db, $cedula){
+        $query = "SELECT cedula_est as cedula FROM estudiantes WHERE cedula_est = '$cedula'
+        UNION
+        SELECT cedula_prof as cedula FROM profesores WHERE cedula_prof = '$cedula'";
+        $resultado = $db->query($query);
+        $registros = '';
+        if($fila = $resultado->fetch_assoc()){
+            $registros=$fila;
+        }
+        return $registros;
+    }
 ?>
